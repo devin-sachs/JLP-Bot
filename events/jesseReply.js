@@ -1,6 +1,7 @@
 const { Events } = require('discord.js');
 
-const targetUserId = '444643657119956992';
+// Jesse's user ID
+const targetUserId = '1378988317542055956';
 
 module.exports = {
     name: Events.MessageCreate,
@@ -24,8 +25,12 @@ module.exports = {
         ];
         if (message.author.bot) return;
 
-            // Repsond only to a specific user
-        if (message.author.id === targetUserId) {
+            // Respond only to a specific user
+        // if (message.author.id === targetUserId) {
+        //     await message.reply(responses[Math.floor(Math.random() * responses.length)]);
+        // }
+
+        if (message.mentions.users.has(targetUserId)) {
             await message.reply(responses[Math.floor(Math.random() * responses.length)]);
         }
     },
